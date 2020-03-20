@@ -171,6 +171,15 @@ public class Board {
     height += 1;
   }
 
+  public void expandBottom() {
+    ArrayList<Cell> rowOfCells = new ArrayList<>();
+    for (int x = 0; x < width; x++) {
+      rowOfCells.add(DEAD_CELL);
+    }
+    board.add(rowOfCells);
+    height += 1;
+  }
+
   @Override
   public boolean equals(Object object) {
     if (object == null || getClass() != object.getClass()) {
