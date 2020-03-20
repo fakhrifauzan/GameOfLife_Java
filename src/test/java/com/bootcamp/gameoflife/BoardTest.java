@@ -111,4 +111,12 @@ public class BoardTest {
     board.setCellState(0, 0, true);
     Assert.assertEquals(1, board.countAliveNeighborCell(1, 1));
   }
+
+  @Test
+  public void givenOneAliveNeighborOnDiagonalTopRightCountAliveNeighborCellShouldReturnOne() {
+    Board board = new Board(4, 4);
+    board.setCellState(1, 1, true);
+    board.setCellState(2, 0, true);
+    Assert.assertEquals(1, board.countAliveNeighborCell(1, 1));
+  }
 }
