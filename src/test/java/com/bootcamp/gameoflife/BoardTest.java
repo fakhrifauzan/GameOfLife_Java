@@ -175,4 +175,12 @@ public class BoardTest {
     Assert.assertEquals(expectedPattern, stdout.toString());
     System.setOut(System.out);
   }
+
+  @Test
+  public void givenDeadCellBoardUpdateCellNextGenerationWithAliveCellShouldReturnAliveCell() {
+    Board board = new Board(2, 2);
+    Cell aliveCell = new Cell(true);
+    board.updateCellNextGeneration(1, 1, aliveCell);
+    Assert.assertEquals(aliveCell, board.getCellAt(1, 1));
+  }
 }

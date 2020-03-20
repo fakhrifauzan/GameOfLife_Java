@@ -87,6 +87,10 @@ public class Board {
     return countAlive;
   }
 
+  public void updateCellNextGeneration(int x, int y, Cell cell) {
+    board.get(y).set(x, cell);
+  }
+
   @Override
   public boolean equals(Object object) {
     if (object == null || getClass() != object.getClass()) {
