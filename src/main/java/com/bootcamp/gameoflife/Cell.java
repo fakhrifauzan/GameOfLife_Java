@@ -1,5 +1,7 @@
 package com.bootcamp.gameoflife;
 
+import java.util.Objects;
+
 public class Cell {
 
   private boolean alive;
@@ -15,5 +17,10 @@ public class Cell {
     }
     Cell cell = (Cell) object;
     return alive == cell.alive;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(alive);
   }
 }
