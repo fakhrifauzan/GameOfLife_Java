@@ -16,4 +16,10 @@ public class CellTest {
     Cell cell = new Cell(true);
     Assert.assertNotEquals(cell, null);
   }
+
+  @Test
+  public void givenCellObjectAndNonCellObjectEqualsShouldReturnFalse() {
+    Cell cell = new Cell(true);
+    Assert.assertNotEquals(cell, 1);
+  }
 }
