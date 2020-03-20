@@ -172,6 +172,9 @@ public class Board {
     if (needExpandLeft()) {
       expandLeft();
     }
+    if (needExpandTop()) {
+      expandTop();
+    }
   }
 
   private ArrayList<Cell> generateRowOfDeadCell() {
