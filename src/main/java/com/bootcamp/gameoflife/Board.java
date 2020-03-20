@@ -45,8 +45,8 @@ public class Board {
     int leftRight = getCellState(x - 1, y) + getCellState(x + 1, y);
     int topBottom = getCellState(x, y - 1) + getCellState(x, y + 1);
     int diagonalTop = getCellState(x - 1, y - 1) + getCellState(x + 1, y - 1);
-    int leftBottom = getCellState(x - 1, y + 1);
-    return leftRight + topBottom + diagonalTop + leftBottom;
+    int diagonalBottom = getCellState(x - 1, y + 1) + getCellState(x + 1, y + 1);
+    return leftRight + topBottom + diagonalTop + diagonalBottom;
   }
 
   @Override
