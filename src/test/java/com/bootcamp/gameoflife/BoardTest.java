@@ -29,4 +29,11 @@ public class BoardTest {
     Board board2 = new Board(4, 2);
     Assert.assertNotEquals(board1, board2);
   }
+
+  @Test
+  public void givenTwoBoardObjectWithDifferentWidthShouldReturnFalse() {
+    Board board1 = new Board(2, 2);
+    Board board2 = new Board(2, 4);
+    Assert.assertNotEquals(board1, board2);
+  }
 }
