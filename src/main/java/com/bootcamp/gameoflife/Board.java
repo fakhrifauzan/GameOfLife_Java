@@ -6,6 +6,7 @@ import java.util.Objects;
 public class Board {
 
   private static final Cell DEAD_CELL = new Cell(false);
+  private static final Cell ALIVE_CELL = new Cell(true);
   private int height;
   private int width;
   private ArrayList<ArrayList<Cell>> board = new ArrayList<>();
@@ -31,7 +32,8 @@ public class Board {
   }
 
   public int getCellState(int x, int y) {
-    return 0;
+    Cell cell = getCellAt(x, y);
+    return cell.equals(ALIVE_CELL) ? 1 : 0;
   }
 
   public void setCellState(int x, int y, boolean state) {

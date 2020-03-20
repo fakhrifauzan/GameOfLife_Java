@@ -64,4 +64,11 @@ public class BoardTest {
     Board board = new Board(2, 2);
     Assert.assertEquals(0, board.getCellState(1, 1));
   }
+
+  @Test
+  public void givenBoard2X2WithGetCellState1Comma1WithAliveCellShouldReturnOneOn1Comma1() {
+    Board board = new Board(2, 2);
+    board.setCellState(1, 1, true);
+    Assert.assertEquals(1, board.getCellState(1, 1));
+  }
 }
