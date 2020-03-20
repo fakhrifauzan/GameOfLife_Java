@@ -264,4 +264,14 @@ public class BoardTest {
     Board expectedBoard = new Board(height, 5);
     Assert.assertEquals(expectedBoard, board);
   }
+
+  @Test
+  public void givenSomeAliveCellInBorderRightExpandRightShouldIncreaseWidthByOne() {
+    List<String> pattern = new ArrayList<>(Arrays.asList("____", "___X", "____"));
+    Board board = createBoardWithPattern(pattern);
+    board.expandRight();
+    int height = pattern.size();
+    Board expectedBoard = new Board(height, 5);
+    Assert.assertEquals(expectedBoard, board);
+  }
 }
