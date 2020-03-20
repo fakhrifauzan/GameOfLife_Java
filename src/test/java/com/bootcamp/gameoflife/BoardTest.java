@@ -233,4 +233,11 @@ public class BoardTest {
     Board board = createBoardWithPattern(pattern);
     Assert.assertFalse(board.needExpandTop());
   }
+
+  @Test
+  public void givenSomeAliveCellInBorderTopNeedExpandTopShouldReturnTrue() {
+    List<String> pattern = new ArrayList<>(Arrays.asList("_XX_", "____", "____"));
+    Board board = createBoardWithPattern(pattern);
+    Assert.assertTrue(board.needExpandTop());
+  }
 }

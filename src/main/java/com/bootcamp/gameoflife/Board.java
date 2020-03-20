@@ -131,6 +131,11 @@ public class Board {
   }
 
   public boolean needExpandTop() {
+    for (int x = 0; x < width; x++) {
+      if (board.get(0).get(x).equals(ALIVE_CELL)) {
+        return true;
+      }
+    }
     return false;
   }
 
