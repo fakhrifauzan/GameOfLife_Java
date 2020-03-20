@@ -10,6 +10,12 @@ import org.junit.Test;
 
 public class BoardTest {
 
+  private Board createBoardWithPattern(List<String> pattern) {
+    int height = pattern.size();
+    int width = pattern.get(0).length();
+    return new Board(height, width, pattern);
+  }
+
   @Test
   public void givenSameBoardObjectEqualsShouldReturnTrue() {
     Board board = new Board(2, 2);
@@ -156,9 +162,7 @@ public class BoardTest {
     board1.setCellState(2, 1, true);
     board1.setCellState(2, 2, true);
     List<String> pattern = new ArrayList<>(Arrays.asList("____", "_XX_", "_XX_", "____"));
-    int height = pattern.size();
-    int width = pattern.get(0).length();
-    Board board2 = new Board(height, width, pattern);
+    Board board2 = createBoardWithPattern(pattern);
     Assert.assertEquals(board1, board2);
   }
 
@@ -167,9 +171,7 @@ public class BoardTest {
     ByteArrayOutputStream stdout = new ByteArrayOutputStream();
     System.setOut(new PrintStream(stdout));
     List<String> pattern = new ArrayList<>(Arrays.asList("____", "_XX_", "_XX_", "____"));
-    int height = pattern.size();
-    int width = pattern.get(0).length();
-    Board board = new Board(height, width, pattern);
+    Board board = createBoardWithPattern(pattern);
     board.displayBoard();
     String expectedPattern = "____\n" + "_XX_\n" + "_XX_\n" + "____\n";
     Assert.assertEquals(expectedPattern, stdout.toString());
@@ -200,36 +202,28 @@ public class BoardTest {
   @Test
   public void givenAllDeadCellInBorderLeftNeedExpandLeftShouldReturnFalse() {
     List<String> pattern = new ArrayList<>(Arrays.asList("____", "_X__", "____"));
-    int height = pattern.size();
-    int width = pattern.get(0).length();
-    Board board = new Board(height, width, pattern);
+    Board board = createBoardWithPattern(pattern);
     Assert.assertFalse(board.needExpandLeft());
   }
 
   @Test
   public void givenSomeAliveCellInBorderLeftNeedExpandLeftShouldReturnTrue() {
     List<String> pattern = new ArrayList<>(Arrays.asList("____", "X___", "____"));
-    int height = pattern.size();
-    int width = pattern.get(0).length();
-    Board board = new Board(height, width, pattern);
+    Board board = createBoardWithPattern(pattern);
     Assert.assertTrue(board.needExpandLeft());
   }
 
   @Test
   public void givenDeadCellInBorderRightNeedExpandRightShouldReturnFalse() {
     List<String> pattern = new ArrayList<>(Arrays.asList("____", "_X__", "____"));
-    int height = pattern.size();
-    int width = pattern.get(0).length();
-    Board board = new Board(height, width, pattern);
+    Board board = createBoardWithPattern(pattern);
     Assert.assertFalse(board.needExpandRight());
   }
 
   @Test
   public void givenAliveCellInBorderRightNeedExpandRightShouldReturnTrue() {
     List<String> pattern = new ArrayList<>(Arrays.asList("____", "___X", "____"));
-    int height = pattern.size();
-    int width = pattern.get(0).length();
-    Board board = new Board(height, width, pattern);
+    Board board = createBoardWithPattern(pattern);
     Assert.assertTrue(board.needExpandRight());
   }
 }
