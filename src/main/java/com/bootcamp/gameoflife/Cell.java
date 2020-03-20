@@ -13,6 +13,7 @@ public class Cell {
     if (object == null || getClass() != object.getClass()) {
       return false;
     }
-    return alive;
+    Cell cell = (Cell) object;
+    return alive == cell.alive;
   }
 }

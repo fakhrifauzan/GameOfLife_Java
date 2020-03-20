@@ -29,4 +29,11 @@ public class CellTest {
     Cell cell2 = new Cell(true);
     Assert.assertEquals(cell1, cell2);
   }
+
+  @Test
+  public void givenCellObjectWithDifferentParametersEqualsShouldReturnFalse() {
+    Cell cell1 = new Cell(true);
+    Cell cell2 = new Cell(false);
+    Assert.assertNotEquals(cell1, cell2);
+  }
 }
