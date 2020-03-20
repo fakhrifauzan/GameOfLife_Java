@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class Cell {
 
+  private static final String ALIVE_CELL_PATTERN = "X";
   private boolean alive;
 
   public Cell(boolean alive) {
@@ -22,5 +23,10 @@ public class Cell {
   @Override
   public int hashCode() {
     return Objects.hash(alive);
+  }
+
+  @Override
+  public String toString() {
+    return ALIVE_CELL_PATTERN;
   }
 }

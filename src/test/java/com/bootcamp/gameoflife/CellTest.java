@@ -43,4 +43,10 @@ public class CellTest {
     Cell cell2 = new Cell(true);
     Assert.assertEquals(cell1.hashCode(), cell2.hashCode());
   }
+
+  @Test
+  public void givenAliveCellToStringShouldReturnX() {
+    Cell cell = new Cell(true);
+    Assert.assertEquals("X", cell.toString());
+  }
 }
