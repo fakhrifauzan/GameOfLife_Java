@@ -30,11 +30,7 @@ public class Board {
 
   private void initialBoardWithDeadCells() {
     for (int y = 0; y < height; y++) {
-      ArrayList<Cell> rowOfDeadCells = new ArrayList<>();
-      for (int x = 0; x < width; x++) {
-        rowOfDeadCells.add(DEAD_CELL);
-      }
-      board.add(rowOfDeadCells);
+      board.add(generateRowOfDeadCell());
     }
   }
 
@@ -163,21 +159,21 @@ public class Board {
   }
 
   public void expandTop() {
-    ArrayList<Cell> rowOfCells = new ArrayList<>();
-    for (int x = 0; x < width; x++) {
-      rowOfCells.add(DEAD_CELL);
-    }
-    board.add(0, rowOfCells);
+    board.add(0, generateRowOfDeadCell());
     height += 1;
   }
 
   public void expandBottom() {
-    ArrayList<Cell> rowOfCells = new ArrayList<>();
-    for (int x = 0; x < width; x++) {
-      rowOfCells.add(DEAD_CELL);
-    }
-    board.add(rowOfCells);
+    board.add(generateRowOfDeadCell());
     height += 1;
+  }
+
+  private ArrayList<Cell> generateRowOfDeadCell() {
+    ArrayList<Cell> rowOfDeadCells = new ArrayList<>();
+    for (int x = 0; x < width; x++) {
+      rowOfDeadCells.add(DEAD_CELL);
+    }
+    return rowOfDeadCells;
   }
 
   @Override
