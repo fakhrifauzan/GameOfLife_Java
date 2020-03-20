@@ -168,6 +168,10 @@ public class Board {
     height += 1;
   }
 
+  public void expandBoard() {
+    expandLeft();
+  }
+
   private ArrayList<Cell> generateRowOfDeadCell() {
     ArrayList<Cell> rowOfDeadCells = new ArrayList<>();
     for (int x = 0; x < width; x++) {
