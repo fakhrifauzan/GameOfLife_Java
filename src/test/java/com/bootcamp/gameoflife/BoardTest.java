@@ -22,4 +22,11 @@ public class BoardTest {
     Board board = new Board(2, 2);
     Assert.assertNotEquals(board, 1);
   }
+
+  @Test
+  public void givenTwoBoardObjectWithDifferentHeightShouldReturnFalse() {
+    Board board1 = new Board(2, 2);
+    Board board2 = new Board(4, 2);
+    Assert.assertNotEquals(board1, board2);
+  }
 }

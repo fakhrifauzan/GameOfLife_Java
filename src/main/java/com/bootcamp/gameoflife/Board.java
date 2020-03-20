@@ -2,7 +2,10 @@ package com.bootcamp.gameoflife;
 
 public class Board {
 
+  private int height;
+
   public Board(int height, int width) {
+    this.height = height;
   }
 
   @Override
@@ -10,6 +13,7 @@ public class Board {
     if (object == null || getClass() != object.getClass()) {
       return false;
     }
-    return true;
+    Board board = (Board) object;
+    return height == board.height;
   }
 }
