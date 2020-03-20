@@ -1,15 +1,33 @@
 package com.bootcamp.gameoflife;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Board {
 
+  private static final Cell DEAD_CELL = new Cell(false);
   private int height;
   private int width;
+  private ArrayList<ArrayList<Cell>> board = new ArrayList<>();
 
   public Board(int height, int width) {
     this.height = height;
     this.width = width;
+    initialBoardWithDeadCells();
+  }
+
+  private void initialBoardWithDeadCells() {
+    for (int y = 0; y < height; y++) {
+      ArrayList<Cell> rowOfDeadCells = new ArrayList<>();
+      for (int x = 0; x < width; x++) {
+        rowOfDeadCells.add(DEAD_CELL);
+      }
+      board.add(rowOfDeadCells);
+    }
+  }
+
+  public Cell getCellAt(int x, int y) {
+    return board.get(y).get(x);
   }
 
   @Override

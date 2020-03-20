@@ -43,4 +43,11 @@ public class BoardTest {
     Board board2 = new Board(2, 2);
     Assert.assertEquals(board1.hashCode(), board2.hashCode());
   }
+
+  @Test
+  public void givenBoard2Comma2WithAllDeadCellGetCellAt1Comma1ShouldReturnDeadCell() {
+    Board board = new Board(2, 2);
+    Cell deadCell = new Cell(false);
+    Assert.assertEquals(deadCell, board.getCellAt(1, 1));
+  }
 }
