@@ -49,4 +49,10 @@ public class CellTest {
     Cell cell = new Cell(true);
     Assert.assertEquals("X", cell.toString());
   }
+
+  @Test
+  public void givenDeadCellToStringShouldReturnUnderscore() {
+    Cell cell = new Cell(false);
+    Assert.assertEquals("_", cell.toString());
+  }
 }

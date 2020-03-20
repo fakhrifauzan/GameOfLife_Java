@@ -5,6 +5,7 @@ import java.util.Objects;
 public class Cell {
 
   private static final String ALIVE_CELL_PATTERN = "X";
+  private static final String DEAD_CELL_PATTERN = "_";
   private boolean alive;
 
   public Cell(boolean alive) {
@@ -27,6 +28,6 @@ public class Cell {
 
   @Override
   public String toString() {
-    return ALIVE_CELL_PATTERN;
+    return alive ? ALIVE_CELL_PATTERN : DEAD_CELL_PATTERN;
   }
 }
