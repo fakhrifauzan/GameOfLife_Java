@@ -1,6 +1,7 @@
 package com.bootcamp.gameoflife;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Board {
@@ -9,6 +10,7 @@ public class Board {
   private static final Cell ALIVE_CELL = new Cell(true);
   private static final int X_STEP = 0;
   private static final int Y_STEP = 1;
+  private static final char ALIVE_CELL_PATTERN = 'X';
   private int height;
   private int width;
   private ArrayList<ArrayList<Cell>> board = new ArrayList<>();
@@ -19,6 +21,12 @@ public class Board {
     initialBoardWithDeadCells();
   }
 
+  public Board(int height, int width, List<String> pattern) {
+    this.height = height;
+    this.width = width;
+    assignPatternToBoard(pattern);
+  }
+
   private void initialBoardWithDeadCells() {
     for (int y = 0; y < height; y++) {
       ArrayList<Cell> rowOfDeadCells = new ArrayList<>();
@@ -26,6 +34,20 @@ public class Board {
         rowOfDeadCells.add(DEAD_CELL);
       }
       board.add(rowOfDeadCells);
+    }
+  }
+
+  private void assignPatternToBoard(List<String> pattern) {
+    for (int y = 0; y < height; y++) {
+      ArrayList<Cell> rowOfCells = new ArrayList<>();
+      for (int x = 0; x < width; x++) {
+        if (pattern.get(y).charAt(x) == ALIVE_CELL_PATTERN) {
+          rowOfCells.add(ALIVE_CELL);
+        } else {
+          rowOfCells.add(DEAD_CELL);
+        }
+      }
+      board.add(rowOfCells);
     }
   }
 

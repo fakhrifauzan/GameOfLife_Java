@@ -1,5 +1,8 @@
 package com.bootcamp.gameoflife;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -141,5 +144,19 @@ public class BoardTest {
     Board board = new Board(1, 1);
     Cell deadCell = new Cell(false);
     Assert.assertEquals(deadCell, board.getCellAt(1, 1));
+  }
+
+  @Test
+  public void givenTwoBoardWithBlockPatternTheBoardEqualsShouldReturnTrue() {
+    Board board1 = new Board(4, 4);
+    board1.setCellState(1, 1, true);
+    board1.setCellState(1, 2, true);
+    board1.setCellState(2, 1, true);
+    board1.setCellState(2, 2, true);
+    List<String> pattern = new ArrayList<>(Arrays.asList("____", "_XX_", "_XX_", "____"));
+    int height = pattern.size();
+    int width = pattern.get(0).length();
+    Board board2 = new Board(height, width, pattern);
+    Assert.assertEquals(board1, board2);
   }
 }
