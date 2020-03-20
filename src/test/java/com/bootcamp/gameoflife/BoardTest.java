@@ -36,4 +36,11 @@ public class BoardTest {
     Board board2 = new Board(2, 4);
     Assert.assertNotEquals(board1, board2);
   }
+
+  @Test
+  public void givenTwoBoardObjectWithSameParamsShouldHaveSameHashCode() {
+    Board board1 = new Board(2, 2);
+    Board board2 = new Board(2, 2);
+    Assert.assertEquals(board1.hashCode(), board2.hashCode());
+  }
 }

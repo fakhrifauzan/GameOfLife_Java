@@ -1,5 +1,7 @@
 package com.bootcamp.gameoflife;
 
+import java.util.Objects;
+
 public class Board {
 
   private int height;
@@ -17,5 +19,10 @@ public class Board {
     }
     Board board = (Board) object;
     return height == board.height && width == board.width;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(height, width);
   }
 }
