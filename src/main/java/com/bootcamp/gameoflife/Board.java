@@ -41,6 +41,10 @@ public class Board {
     board.get(y).set(x, cell);
   }
 
+  public int countAliveNeighborCell(int x, int y) {
+    return getCellState(x - 1, y);
+  }
+
   @Override
   public boolean equals(Object object) {
     if (object == null || getClass() != object.getClass()) {
