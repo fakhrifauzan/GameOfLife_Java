@@ -22,4 +22,11 @@ public class CellTest {
     Cell cell = new Cell(true);
     Assert.assertNotEquals(cell, 1);
   }
+
+  @Test
+  public void givenCellObjectWithSameParametersEqualsShouldReturnTrue() {
+    Cell cell1 = new Cell(true);
+    Cell cell2 = new Cell(true);
+    Assert.assertEquals(cell1, cell2);
+  }
 }
