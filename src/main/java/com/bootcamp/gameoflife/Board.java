@@ -112,6 +112,10 @@ public class Board {
     updateBoardNextGeneration();
   }
 
+  public boolean needExpandLeft() {
+    return false;
+  }
+
   @Override
   public boolean equals(Object object) {
     if (object == null || getClass() != object.getClass()) {

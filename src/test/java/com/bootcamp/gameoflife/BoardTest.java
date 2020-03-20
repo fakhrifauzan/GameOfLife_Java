@@ -196,4 +196,13 @@ public class BoardTest {
     Board expectedBoard = new Board(height, width);
     Assert.assertEquals(expectedBoard, board);
   }
+
+  @Test
+  public void givenAllDeadCellInBorderLeftNeedExpandLeftShouldReturnFalse() {
+    List<String> pattern = new ArrayList<>(Arrays.asList("____", "_X__", "____"));
+    int height = pattern.size();
+    int width = pattern.get(0).length();
+    Board board = new Board(height, width, pattern);
+    Assert.assertFalse(board.needExpandLeft());
+  }
 }
