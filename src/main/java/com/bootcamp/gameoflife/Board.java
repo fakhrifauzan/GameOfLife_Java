@@ -139,6 +139,10 @@ public class Board {
     return false;
   }
 
+  public boolean needExpandBottom() {
+    return false;
+  }
+
   @Override
   public boolean equals(Object object) {
     if (object == null || getClass() != object.getClass()) {
