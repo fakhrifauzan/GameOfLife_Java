@@ -135,4 +135,11 @@ public class BoardTest {
     board.setCellState(2, 2, true);
     Assert.assertEquals(1, board.countAliveNeighborCell(1, 1));
   }
+
+  @Test
+  public void givenRaiseIndexOfBoundExceptionWhenGetCellAtShouldReturnDeadCell() {
+    Board board = new Board(1, 1);
+    Cell deadCell = new Cell(false);
+    Assert.assertEquals(deadCell, board.getCellAt(1, 1));
+  }
 }

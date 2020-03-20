@@ -30,7 +30,11 @@ public class Board {
   }
 
   public Cell getCellAt(int x, int y) {
-    return board.get(y).get(x);
+    try {
+      return board.get(y).get(x);
+    } catch (IndexOutOfBoundsException exception) {
+      return DEAD_CELL;
+    }
   }
 
   public int getCellState(int x, int y) {
