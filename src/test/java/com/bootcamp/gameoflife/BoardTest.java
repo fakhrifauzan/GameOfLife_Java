@@ -1,5 +1,7 @@
 package com.bootcamp.gameoflife;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -158,5 +160,19 @@ public class BoardTest {
     int width = pattern.get(0).length();
     Board board2 = new Board(height, width, pattern);
     Assert.assertEquals(board1, board2);
+  }
+
+  @Test
+  public void testDisplayBoardWithBlockPattern() {
+    ByteArrayOutputStream stdout = new ByteArrayOutputStream();
+    System.setOut(new PrintStream(stdout));
+    List<String> pattern = new ArrayList<>(Arrays.asList("____", "_XX_", "_XX_", "____"));
+    int height = pattern.size();
+    int width = pattern.get(0).length();
+    Board board = new Board(height, width, pattern);
+    board.displayBoard();
+    String expectedPattern = "____\n" + "_XX_\n" + "_XX_\n" + "____\n";
+    Assert.assertEquals(expectedPattern, stdout.toString());
+    System.setOut(System.out);
   }
 }

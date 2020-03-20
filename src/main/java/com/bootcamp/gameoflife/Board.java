@@ -51,6 +51,15 @@ public class Board {
     }
   }
 
+  public void displayBoard() {
+    for (int y = 0; y < height; y++) {
+      for (int x = 0; x < width; x++) {
+        System.out.print(getCellAt(x, y));
+      }
+      System.out.println();
+    }
+  }
+
   public Cell getCellAt(int x, int y) {
     try {
       return board.get(y).get(x);
