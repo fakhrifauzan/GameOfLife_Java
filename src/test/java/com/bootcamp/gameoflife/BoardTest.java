@@ -304,4 +304,14 @@ public class BoardTest {
     Board expectedBoard = new Board(height, 5);
     Assert.assertEquals(expectedBoard, board);
   }
+
+  @Test
+  public void givenAllDeadCellInBorderLeftExpandBoardShouldNotExpandLeft() {
+    List<String> pattern = new ArrayList<>(Arrays.asList("____", "_XX_", "____"));
+    Board board = createBoardWithPattern(pattern);
+    board.expandBoard();
+    int height = pattern.size();
+    Board expectedBoard = new Board(height, 4);
+    Assert.assertEquals(expectedBoard, board);
+  }
 }
