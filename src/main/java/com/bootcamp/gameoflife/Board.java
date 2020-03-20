@@ -24,6 +24,7 @@ public class Board {
   public Board(int height, int width, List<String> pattern) {
     this.height = height;
     this.width = width;
+    initialBoardWithDeadCells();
     assignPatternToBoard(pattern);
   }
 
@@ -39,15 +40,11 @@ public class Board {
 
   private void assignPatternToBoard(List<String> pattern) {
     for (int y = 0; y < height; y++) {
-      ArrayList<Cell> rowOfCells = new ArrayList<>();
       for (int x = 0; x < width; x++) {
         if (pattern.get(y).charAt(x) == ALIVE_CELL_PATTERN) {
-          rowOfCells.add(ALIVE_CELL);
-        } else {
-          rowOfCells.add(DEAD_CELL);
+          setCellState(x, y, true);
         }
       }
-      board.add(rowOfCells);
     }
   }
 
