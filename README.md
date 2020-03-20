@@ -23,4 +23,19 @@ To run test, please run this command
 ```
 
 ## Run Instruction
-TBD
+To run application, please run this command
+```
+./gradlew run --console plain run --args='./pattern/<PATTERN>.txt'
+```
+For example to run `block` pattern
+```
+./gradlew run --console plain run --args='./pattern/block.txt'
+```
+
+### List of Supported Pattern
+1. Still Alive Pattern: `block`, `boat`, `loaf`
+
+### List of Non-Supported Pattern
+1. Oscilator Pattern: `toad`, `pulsar`, `pentadechatlon`
+2. Spaceship Pattern: `glider`, `lightweight-spaceship`
+3. Custom Pattern: `gosper-glider-gun`
