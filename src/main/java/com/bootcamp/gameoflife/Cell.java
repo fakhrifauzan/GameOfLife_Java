@@ -6,6 +6,8 @@ public class Cell {
 
   private static final String ALIVE_CELL_PATTERN = "X";
   private static final String DEAD_CELL_PATTERN = "_";
+  private static final int LOWER_BOUND_ALIVE_NEIGHBOR = 2;
+  private static final int UPPER_BOUND_ALIVE_NEIGHBOR = 3;
   private boolean alive;
   private int neighbors;
 
@@ -18,19 +20,13 @@ public class Cell {
   }
 
   public Cell isAliveInNextGeneration() {
-    if (!alive && neighbors == 3) {
-      return new Cell(true);
-    }
+    boolean isAlive;
     if (alive) {
-      if (neighbors < 2) {
-        return new Cell(false);
-      } else if (neighbors == 2 || neighbors == 3) {
-        return new Cell(true);
-      } else {
-        return new Cell(false);
-      }
+      isAlive = neighbors == LOWER_BOUND_ALIVE_NEIGHBOR || neighbors == UPPER_BOUND_ALIVE_NEIGHBOR;
+    } else {
+      isAlive = neighbors == UPPER_BOUND_ALIVE_NEIGHBOR;
     }
-    return new Cell(false);
+    return new Cell(isAlive);
   }
 
   @Override
