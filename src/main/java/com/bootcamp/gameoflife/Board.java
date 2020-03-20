@@ -122,6 +122,11 @@ public class Board {
   }
 
   public boolean needExpandRight() {
+    for (int y = 0; y < height; y++) {
+      if (board.get(y).get(width - 1).equals(ALIVE_CELL)) {
+        return true;
+      }
+    }
     return false;
   }
 
