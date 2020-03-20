@@ -91,6 +91,30 @@ public class Board {
     board.get(y).set(x, cell);
   }
 
+  private void countCellNeighbors() {
+    for (int y = 0; y < height; y++) {
+      for (int x = 0; x < width; x++) {
+        int neighbors = countAliveNeighborCell(x, y);
+        Cell cell = getCellAt(x, y);
+        cell.setNeighbors(neighbors);
+      }
+    }
+  }
+
+  private void updateBoardNextGeneration() {
+    for (int y = 0; y < height; y++) {
+      for (int x = 0; x < width; x++) {
+        Cell cell = getCellAt(x, y);
+        updateCellNextGeneration(x, y, cell.isAliveInNextGeneration());
+      }
+    }
+  }
+
+  public void generateNextGeneration() {
+    countCellNeighbors();
+    updateBoardNextGeneration();
+  }
+
   @Override
   public boolean equals(Object object) {
     if (object == null || getClass() != object.getClass()) {

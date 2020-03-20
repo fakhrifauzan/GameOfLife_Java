@@ -183,4 +183,17 @@ public class BoardTest {
     board.updateCellNextGeneration(1, 1, aliveCell);
     Assert.assertEquals(aliveCell, board.getCellAt(1, 1));
   }
+
+  @Test
+  public void givenToadPatternBoardInSecondNextGenerationBoardEqualsShouldReturnTrue() {
+    List<String> pattern = new ArrayList<>(
+        Arrays.asList("______", "______", "__XXX_", "_XXX__", "______", "______"));
+    int height = pattern.size();
+    int width = pattern.get(0).length();
+    Board board = new Board(height, width, pattern);
+    board.generateNextGeneration();
+    board.generateNextGeneration();
+    Board expectedBoard = new Board(height, width);
+    Assert.assertEquals(expectedBoard, board);
+  }
 }
