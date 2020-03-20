@@ -214,4 +214,13 @@ public class BoardTest {
     Board board = new Board(height, width, pattern);
     Assert.assertTrue(board.needExpandLeft());
   }
+
+  @Test
+  public void givenDeadCellInBorderRightNeedExpandRightShouldReturnFalse() {
+    List<String> pattern = new ArrayList<>(Arrays.asList("____", "_X__", "____"));
+    int height = pattern.size();
+    int width = pattern.get(0).length();
+    Board board = new Board(height, width, pattern);
+    Assert.assertFalse(board.needExpandRight());
+  }
 }
