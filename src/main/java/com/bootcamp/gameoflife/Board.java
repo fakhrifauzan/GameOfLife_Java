@@ -7,6 +7,8 @@ public class Board {
 
   private static final Cell DEAD_CELL = new Cell(false);
   private static final Cell ALIVE_CELL = new Cell(true);
+  private static final int X_STEP = 0;
+  private static final int Y_STEP = 1;
   private int height;
   private int width;
   private ArrayList<ArrayList<Cell>> board = new ArrayList<>();
@@ -42,11 +44,12 @@ public class Board {
   }
 
   public int countAliveNeighborCell(int x, int y) {
-    int leftRight = getCellState(x - 1, y) + getCellState(x + 1, y);
-    int topBottom = getCellState(x, y - 1) + getCellState(x, y + 1);
-    int diagonalTop = getCellState(x - 1, y - 1) + getCellState(x + 1, y - 1);
-    int diagonalBottom = getCellState(x - 1, y + 1) + getCellState(x + 1, y + 1);
-    return leftRight + topBottom + diagonalTop + diagonalBottom;
+    int countAlive = 0;
+    int[][] steps = {{0, -1}, {0, 1}, {-1, 0}, {1, 0}, {-1, -1}, {1, -1}, {-1, 1}, {1, 1}};
+    for (int[] step : steps) {
+      countAlive += getCellState(x + step[X_STEP], y + step[Y_STEP]);
+    }
+    return countAlive;
   }
 
   @Override
