@@ -42,10 +42,9 @@ public class Board {
   }
 
   public int countAliveNeighborCell(int x, int y) {
-    int left = getCellState(x - 1, y);
-    int right = getCellState(x + 1, y);
-    int top = getCellState(x, y - 1);
-    return left + right + top;
+    int leftRight = getCellState(x - 1, y) + getCellState(x + 1, y);
+    int topBottom = getCellState(x, y - 1) + getCellState(x, y + 1);
+    return leftRight + topBottom;
   }
 
   @Override
