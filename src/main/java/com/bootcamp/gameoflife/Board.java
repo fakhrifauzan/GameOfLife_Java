@@ -140,6 +140,11 @@ public class Board {
   }
 
   public boolean needExpandBottom() {
+    for (int x = 0; x < width; x++) {
+      if (board.get(height - 1).get(x).equals(ALIVE_CELL)) {
+        return true;
+      }
+    }
     return false;
   }
 
