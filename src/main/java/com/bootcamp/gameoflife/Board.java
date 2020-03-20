@@ -30,6 +30,11 @@ public class Board {
     return board.get(y).get(x);
   }
 
+  public void setCellState(int x, int y, boolean state) {
+    Cell cell = new Cell(state);
+    board.get(y).set(x, cell);
+  }
+
   @Override
   public boolean equals(Object object) {
     if (object == null || getClass() != object.getClass()) {

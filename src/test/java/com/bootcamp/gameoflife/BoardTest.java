@@ -50,4 +50,12 @@ public class BoardTest {
     Cell deadCell = new Cell(false);
     Assert.assertEquals(deadCell, board.getCellAt(1, 1));
   }
+
+  @Test
+  public void givenBoard2X2WithSetCellAt1Comma1WithAliveCellShouldReturnAliveCellOn1Comma1() {
+    Board board = new Board(2, 2);
+    Cell aliveCell = new Cell(true);
+    board.setCellState(1, 1, true);
+    Assert.assertEquals(aliveCell, board.getCellAt(1, 1));
+  }
 }
