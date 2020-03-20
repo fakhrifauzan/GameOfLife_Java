@@ -18,6 +18,9 @@ public class Cell {
   }
 
   public Cell isAliveInNextGeneration() {
+    if (!alive && neighbors == 3) {
+      return new Cell(true);
+    }
     return new Cell(false);
   }
 

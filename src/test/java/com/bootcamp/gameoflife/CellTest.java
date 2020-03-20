@@ -62,4 +62,11 @@ public class CellTest {
     cell.setNeighbors(0);
     Assert.assertEquals(new Cell(false), cell.isAliveInNextGeneration());
   }
+
+  @Test
+  public void givenDeadCellWith3AliveNeighborShouldReturnAliveCellInNextGeneration() {
+    Cell cell = new Cell(false);
+    cell.setNeighbors(3);
+    Assert.assertEquals(new Cell(true), cell.isAliveInNextGeneration());
+  }
 }
