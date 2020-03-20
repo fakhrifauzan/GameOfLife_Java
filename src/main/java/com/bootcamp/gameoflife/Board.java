@@ -148,6 +148,13 @@ public class Board {
     return false;
   }
 
+  public void expandLeft() {
+    for (int y = 0; y < height; y++) {
+      board.get(y).add(0, DEAD_CELL);
+    }
+    width += 1;
+  }
+
   @Override
   public boolean equals(Object object) {
     if (object == null || getClass() != object.getClass()) {
