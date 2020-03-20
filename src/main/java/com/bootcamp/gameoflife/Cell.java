@@ -24,6 +24,9 @@ public class Cell {
     if (alive && neighbors < 2) {
       return new Cell(false);
     }
+    if (alive && neighbors == 2) {
+      return new Cell(true);
+    }
     return new Cell(false);
   }
 
