@@ -10,4 +10,10 @@ public class BoardTest {
     Board board = new Board(2, 2);
     Assert.assertEquals(board, board);
   }
+
+  @Test
+  public void givenBoardObjectAndNullShouldReturnFalse() {
+    Board board = new Board(2, 2);
+    Assert.assertNotEquals(board, null);
+  }
 }
