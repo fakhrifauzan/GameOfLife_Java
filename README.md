@@ -34,8 +34,8 @@ For example to run `block` pattern
 
 ### List of Supported Pattern
 1. Still Alive Pattern: `block`, `boat`, `loaf`
+2. Oscillator Pattern: `toad`, `pulsar`, `pentadechatlon`
 
 ### List of Non-Supported Pattern
-1. Oscilator Pattern: `toad`, `pulsar`, `pentadechatlon`
-2. Spaceship Pattern: `glider`, `lightweight-spaceship`
-3. Custom Pattern: `gosper-glider-gun`
+1. Spaceship Pattern: `glider`, `lightweight-spaceship`
+2. Custom Pattern: `gosper-glider-gun`

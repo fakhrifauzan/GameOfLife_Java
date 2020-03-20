@@ -23,6 +23,7 @@ public class Main {
     int generation = 1;
     while (true) {
       System.out.println("=== GENERATION " + generation + " ===");
+      board.generateNextGeneration();
       board.displayBoard();
       generation += 1;
       clearScreen();
