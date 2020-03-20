@@ -7,9 +7,18 @@ public class Cell {
   private static final String ALIVE_CELL_PATTERN = "X";
   private static final String DEAD_CELL_PATTERN = "_";
   private boolean alive;
+  private int neighbors;
 
   public Cell(boolean alive) {
     this.alive = alive;
+  }
+
+  public void setNeighbors(int neighbors) {
+    this.neighbors = neighbors;
+  }
+
+  public Cell isAliveInNextGeneration() {
+    return new Cell(false);
   }
 
   @Override
