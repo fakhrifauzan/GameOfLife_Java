@@ -106,6 +106,7 @@ public class Board {
   public void generateNextGeneration() {
     countCellNeighbors();
     updateBoardNextGeneration();
+    expandBoard();
   }
 
   public boolean needExpandLeft() {
