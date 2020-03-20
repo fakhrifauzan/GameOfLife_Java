@@ -10,4 +10,10 @@ public class CellTest {
     Cell cell = new Cell(true);
     Assert.assertEquals(cell, cell);
   }
+
+  @Test
+  public void givenCellObjectAndNullEqualsShouldReturnFalse() {
+    Cell cell = new Cell(true);
+    Assert.assertNotEquals(cell, null);
+  }
 }
