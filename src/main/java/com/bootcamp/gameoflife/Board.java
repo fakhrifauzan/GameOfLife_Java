@@ -30,6 +30,10 @@ public class Board {
     return board.get(y).get(x);
   }
 
+  public int getCellState(int x, int y) {
+    return 0;
+  }
+
   public void setCellState(int x, int y, boolean state) {
     Cell cell = new Cell(state);
     board.get(y).set(x, cell);

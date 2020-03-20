@@ -58,4 +58,10 @@ public class BoardTest {
     board.setCellState(1, 1, true);
     Assert.assertEquals(aliveCell, board.getCellAt(1, 1));
   }
+
+  @Test
+  public void givenBoard2X2WithAllDeadCellGetCellStateShouldReturnZero() {
+    Board board = new Board(2, 2);
+    Assert.assertEquals(0, board.getCellState(1, 1));
+  }
 }
